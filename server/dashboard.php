@@ -6,20 +6,15 @@
     <title>Dashboard</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        const accountType = 'candidate'; 
-        document.addEventListener('DOMContentLoaded', () => {
-            const examinerDashboard = document.getElementById('examinerDashboard');
-            const candidateDashboard = document.getElementById('candidateDashboard');
-            if (accountType === 'examiner') {
-                examinerDashboard.classList.remove('hidden');
-            } else if (accountType === 'candidate') {
-                candidateDashboard.classList.remove('hidden');
-            }
-        });
-    </script>
 </head>
 <body class="bg-gray-100">
+<?php
+session_start();
+if (isset($_SESSION['account_type'])) {
+  $account_type = $_SESSION['account_type'];
+  echo "<input type='hidden' id='loggedInUser' value='$account_type'>";
+}
+?>
     <div class="container mx-auto py-8">
         <div class="bg-white p-6 rounded-lg shadow-md">
             <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
@@ -55,5 +50,17 @@
             </div>
         </div>
     </div>
+    <script>
+        const accountType = document.getElementById('loggedInUser').value; 
+        document.addEventListener('DOMContentLoaded', () => {
+            const examinerDashboard = document.getElementById('examinerDashboard');
+            const candidateDashboard = document.getElementById('candidateDashboard');
+            if (accountType === 'examiner') {
+                examinerDashboard.classList.remove('hidden');
+            } else if (accountType === 'candidate') {
+                candidateDashboard.classList.remove('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
