@@ -28,8 +28,10 @@ if ($result->num_rows > 0) {
     $checkpass = $row['password']; 
     if (($password == $checkpass)) {
         // Password is correct, start the session
-        $_SESSION['username'] = $username;
+        $_SESSION['user_name'] = $username;
         $_SESSION['account_type'] = $row['account_type'];
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['last_name'] = $row['last_name']; 
         header('Location: dashboard.php'); 
         exit();
     } else {
@@ -45,6 +47,6 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 // Redirect back to the login page with an error message
-header('Location: ../login.php?error=' . urlencode($error)."&password=".($checkpass));
+header('Location: ../login.php?error=' . urlencode($error));
 exit();
 ?>

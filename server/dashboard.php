@@ -11,25 +11,28 @@
 <?php
 session_start();
 if (isset($_SESSION['account_type'])) {
-  $account_type = $_SESSION['account_type'];
-  echo "<input type='hidden' id='loggedInUser' value='$account_type'>";
+  $account_type = $_SESSION['account_type']; 
+  echo "<input type='hidden' id='loggedInUserType' value='$account_type'>";
 }
 ?>
     <div class="container mx-auto py-8">
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
+            <h1 class="text-2xl font-bold mb-6">Welcome back <?php echo $_SESSION['first_name']." ".$_SESSION['last_name']; ?></h1>
             <!-- Examiner Dashboard -->
             <div id="examinerDashboard" class="hidden">
                 <h2 class="text-xl font-semibold mb-4">Examiner Dashboard</h2>
                 <ul>
                     <li class="mb-2">
-                        <a href="dashboard/manageTests.php" class="text-blue-500 hover:underline">Manage Tests</a>
-                    </li>
-                    <li class="mb-2">
                         <a href="dashboard/addTests.php" class="text-blue-500 hover:underline">Add New Test</a>
                     </li>
                     <li class="mb-2">
+                        <a href="dashboard/manageTests.php" class="text-blue-500 hover:underline">Manage Tests</a>
+                    </li>
+                    <li class="mb-2">
                         <a href="dashboard/setProfile.php" class="text-blue-500 hover:underline">Profile Settings</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="dashboard/logout.php" class="text-blue-500 hover:underline">log out</a>
                     </li>
                 </ul>
             </div>
@@ -46,12 +49,16 @@ if (isset($_SESSION['account_type'])) {
                     <li class="mb-2">
                         <a href="dashboard/setProfile.php" class="text-blue-500 hover:underline">Profile Settings</a>
                     </li>
+                    <li class="mb-2">
+                        <a href="dashboard/logout.php" class="text-blue-500 hover:underline">log out</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
     </div>
     <script>
-        const accountType = document.getElementById('loggedInUser').value; 
+        const accountType = document.getElementById('loggedInUserType').value; 
         document.addEventListener('DOMContentLoaded', () => {
             const examinerDashboard = document.getElementById('examinerDashboard');
             const candidateDashboard = document.getElementById('candidateDashboard');
