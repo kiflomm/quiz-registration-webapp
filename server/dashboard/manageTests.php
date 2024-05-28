@@ -50,10 +50,18 @@ $conn->close();
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex justify-center items-center h-screen">
-    <div class="max-w-4xl w-full bg-white p-8 rounded-lg shadow-md">
-        <button type="button" name="add_question" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
-            <a href="../dashboard.php">Go back to dashboard</a>
+    <div class="w-full bg-white p-8 rounded-lg shadow-md">
+        <div class="flex justify-between">
+            <button type="button" name="add_question" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700"
+                onclick="location.href='../dashboard.php'">
+                Go back to dashboard
+            </button> 
+            <button type="button" name="add_question" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700"
+                onclick="location.href='addTests.php'">
+                Add new Test
+            </button> 
         </button> 
+        </div>
         <h1 class="text-2xl font-semibold mb-4">Manage Your Tests</h1>
         <?php if (isset($success)): ?>
             <p class="text-green-500 text-sm mb-4"><?php echo htmlspecialchars($success); ?></p>

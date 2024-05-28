@@ -83,7 +83,10 @@ $conn->close();
     <title>Add Test and Questions</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex justify-center items-center h-screen">
+<body class="bg-gray-100 flex flex-col justify-between items-center h-screen">
+    <div><button type="button" name="add_question" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
+            <a href="../dashboard.php">Go back to dashboard</a>
+        </button> </div>
     <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
         <h1 class="text-2xl font-semibold mb-4">Add New Test</h1>
         <?php if (isset($success)): ?>
