@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-100 flex justify-center items-center h-screen">
   <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-    <h1 class="text-2xl font-semibold mb-4">Login</h1>
+    <h1 class="text-2xl text-center font-semibold mb-4">Sign in to your account</h1>
     <?php
 if (isset($_GET['error'])) {
     echo '<p class="text-red-500 text-sm mb-4">' . htmlspecialchars($_GET['error']) . '</p>';
@@ -28,8 +28,10 @@ if (isset($_GET['error'])) {
         <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">Login</button>
         <a href="#" class="text-sm text-gray-600 hover:text-blue-500">Forgot Password?</a>
       </div>
-      
-      <p class=" text-center font-bold"> Don't have an account? <a href="/" class="text-sm text-gray-600 hover:text-blue-500">sign up here</a></p>
+      <div class="flex justify-around">
+      <p class=" text-center font-bold"> Don't have an account? </p>
+        <p><a href="/" class="text-sm text-gray-600 hover:text-blue-500">sign up here</a></p>
+      </div>
     </form>
   </div>
 </body>

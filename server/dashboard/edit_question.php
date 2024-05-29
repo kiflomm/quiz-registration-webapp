@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-$test_id = $_SESSION['test_id_'];
-$test_title = $_SESSION['test_title']; 
+$test_id = $_SESSION['test_id_']; 
 // Database connection details
 $host = 'localhost';
 $db = 'quiz_app_details';
@@ -59,17 +58,13 @@ $conn->close();
     <title>Edit Question</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex justify-center items-center h-screen">
-    <div class="w-full bg-white p-8 rounded-lg shadow-md">
-        <button type="button" name="add_question" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
-            <a href="manage_questions.php?test_id=<?php echo $test_id; ?>">Go back to Manage Questions</a>
+<body class="flex bg-gray-100 flex justify-center items-center h-screen">
+    
+        <button type="button" name="add_question" class="h-screen bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700"
+            onclick="location.href='manage_questions.php?test_id=<?php echo $test_id; ?>'">
+            Cancel Editing
         </button> 
-        <h1 class="text-2xl font-semibold mb-4">Edit Question in : <?php echo htmlspecialchars($test_title); ?></h1>
-        <?php if (isset($success)): ?>
-            <p class="text-green-500 text-sm mb-4"><?php echo htmlspecialchars($success); ?></p>
-        <?php elseif (isset($error)): ?>
-            <p class="text-red-500 text-sm mb-4"><?php echo htmlspecialchars($error); ?></p>
-        <?php endif; ?>
+        <div class=" w-full bg-white p-8 rounded-lg shadow-md">
         <form action="" method="POST" class="space-y-4">
             <div class="flex flex-col">
                 <label for="question_text" class="text-gray-700 mb-2">Question Text</label>

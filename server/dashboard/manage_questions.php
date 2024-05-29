@@ -56,7 +56,7 @@ $conn->close();
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex justify-center items-center h-screen">
-    <div class="w-full bg-white p-8 rounded-lg shadow-md">
+    <div class="w-full bg-white p-8 rounded-lg shadow-md h-full">
         <div class="flex justify-between">
         <button type="button" name="add_question" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded outline-none"
             onclick="location.href='manageTests.php'"
@@ -69,7 +69,7 @@ $conn->close();
             Add new question
         </button>
         </div>
-        <h1 class="text-2xl font-semibold mb-4">Manage Questions for: <?php echo htmlspecialchars($row['test_title']); ?></h1>
+        <h1 class="text-2xl text-center font-semibold mb-4 text-blue-500">Manage Questions for: <?php echo "<span class='text-red-500'>". htmlspecialchars($row['test_title'])."</span>"; ?></h1>
         <table class="min-w-full bg-white border">
             <thead>
                 <tr>

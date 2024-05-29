@@ -43,9 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_question'])) {
     <title>add question</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<div class="flex justify-center mt-10">  
-    <form action="" method="POST" class="w-full max-w-md space-y-4 bg-white rounded shadow-md px-8 py-5">
+<body> 
+<div class="flex justify-center h-screen">  
+    <button type="submit" name="add_question" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded outline-none"
+        onclick="location.href='manage_questions.php?test_id=<?php echo $_GET['test_id'];?>'"
+    >Cancel Adding</button> 
+    <form action="" method="POST" class="w-full bg-white rounded shadow-md px-8 py-5">
     <div class="flex flex-col">
       <label for="question_text" class="text-gray-700 text-lg font-semibold mb-2">Question Text</label>
       <textarea id="question_text" name="question_text" class="rounded-md border border-gray-300 px-3 py-2 h-24 focus:outline-none focus:ring-1 focus:ring-blue-500" required></textarea>
@@ -70,7 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_question'])) {
       <label for="correct_answer" class="text-gray-700 text-base mb-2">Correct Option [1 - 4]</label>
       <input type="number" id="correct_answer" name="correct_answer" max='4' min='1' class="rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500" required>
     </div>
-    <div class="flex justify-end mt-4">  <button type="submit" name="add_question" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded outline-none">Add Question</button>
+    <div class="flex justify-end mt-4">  
+        <button type="submit" name="add_question" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded outline-none">Add Question</button>
     </div>
   </form>
 </div>
